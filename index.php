@@ -2,13 +2,16 @@
 
 declare(strict_types=1);
 
+use MonsterQuest\Generator\MonsterGenerator;
 use MonsterQuest\Utils\CommandLineOutput;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
 $commandLineOutput = new CommandLineOutput();
 
-$monster = generateMonster('Slime');
+$monsterDto = (new MonsterGenerator())->execute(name: 'Slime', level: 10, hp: 30, mp: 15);
+$monsterArr = $monsterDto->toArray();
+echo $commandLineOutput->execute("A {$monsterArr['name']} draws near!");
 
 echo PHP_EOL;
 
