@@ -2,18 +2,21 @@
 
 declare(strict_types=1);
 
+use MonsterQuest\Utils\CommandLineOutput;
+
 require_once __DIR__ . '/vendor/autoload.php';
 
+$commandLineOutput = new CommandLineOutput();
 
 $monster = generateMonster('Slime');
 
 echo PHP_EOL;
 
-echo 'What do we do?' . PHP_EOL;
+echo $commandLineOutput->execute('What do we do?');
 
 echo PHP_EOL;
 
-echo 'Please input f(fight) or r(run away).' . PHP_EOL;
+echo $commandLineOutput->execute('Please input f(fight) or r(run away).');
 
 $userInput = trim(fgets(STDIN));
 
