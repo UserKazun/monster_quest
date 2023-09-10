@@ -6,7 +6,7 @@ namespace MonsterQuest\Utils;
 
 class CommandLineOutput
 {
-    public function execute(string $outputText): string
+    public static function execute(string $outputText): string
     {
         return "{$outputText}" . PHP_EOL;
     }

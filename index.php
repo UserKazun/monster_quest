@@ -7,24 +7,23 @@ use MonsterQuest\Utils\CommandLineOutput;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-$commandLineOutput = new CommandLineOutput();
 
 $monsterDto = (new MonsterGenerator())->execute(name: 'Slime', level: 10, hp: 30, mp: 15);
 $monsterArr = $monsterDto->toArray();
-echo $commandLineOutput->execute("A {$monsterArr['name']} draws near!");
+echo CommandLineOutput::execute("A {$monsterArr['name']} draws near!");
 
 echo PHP_EOL;
 
-echo $commandLineOutput->execute('What do we do?');
+echo CommandLineOutput::execute('What do we do?');
 
 echo PHP_EOL;
 
-echo $commandLineOutput->execute('Please input f(fight) or r(run away).');
+echo CommandLineOutput::execute('Please input f(fight) or r(run away).');
 
 $userInput = trim(fgets(STDIN));
 
 if ($userInput === 'f') {
-    fight($monster['hp'], $monster['name']);
+    fight($monsterArr['hp'], $monsterArr['name']);
 } else if ($userInput === 'r') {
     runAway();
 }
