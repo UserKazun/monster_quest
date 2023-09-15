@@ -76,19 +76,3 @@ function runAway()
 {
     echo 'We got away!' . PHP_EOL;
 }
-
-function generateMonster(string $name)
-{
-    echo "A {$name} draws near!" . PHP_EOL;
-
-    $monster = [
-        'name' => $name,
-        'level' => 10,
-        'hp' => 30,
-        'mp' => 15
-    ];
-
-    echo "Lv. {$monster['level']}" . PHP_EOL;
-
-    return $monster;
-}
