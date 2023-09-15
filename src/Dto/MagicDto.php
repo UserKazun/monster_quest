@@ -14,4 +14,12 @@ class MagicDto
         $this->name = $name;
         $this->reduMp = $reduMp;
     }
+
+    public function toArray(): array
+    {
+        return [
+            'name' => $this->name,
+            'reduMp' => $this->reduMp
+        ];
+    }
 }

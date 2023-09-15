@@ -19,4 +19,14 @@ class YusyaDto
         $this->mp = $mp;
         $this->magics = $magics;
     }
+
+    public function toArray(): array
+    {
+        return [
+            'name' => $this->name,
+            'hp' => $this->hp,
+            'mp' => $this->mp,
+            'magics' => $this->magics
+        ];
+    }
 }
