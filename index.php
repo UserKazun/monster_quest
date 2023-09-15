@@ -2,13 +2,31 @@
 
 declare(strict_types=1);
 
+use MonsterQuest\Dto\MagicDto;
 use MonsterQuest\Generator\MonsterGenerator;
+use MonsterQuest\Generator\YusyaGenerator;
 use MonsterQuest\Utils\CommandLineOutput;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
+$yusyaDto = (new YusyaGenerator())->execute(
+    name: 'Tolo',
+    hp: 200,
+    mp: 100,
+    magics: [
+        new MagicDto('Fire ball', 10),
+        new MagicDto('Heal', 5),
+        new MagicDto('Power up', 8),
+        new MagicDto('Pillar of flame', 12)
+    ]
+);
+$monsterDto = (new MonsterGenerator())->execute(
+    name: 'Slime',
+    level: 10,
+    hp: 30,
+    mp: 15
+);
 
-$monsterDto = (new MonsterGenerator())->execute(name: 'Slime', level: 10, hp: 30, mp: 15);
 $monsterArr = $monsterDto->toArray();
 echo CommandLineOutput::execute("A {$monsterArr['name']} draws near!");
 
